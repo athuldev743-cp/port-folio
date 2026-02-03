@@ -1273,3 +1273,48 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+/* ===================== PORTFOLIO: make cards smaller + uniform ===================== */
+.portfolio .portfolio-content {
+  border-radius: 12px;   /* optional: modern */
+}
+
+.portfolio .portfolio-content img{
+  width: 100%;
+  height: 220px;
+  object-fit: contain;          /* ✅ no crop */
+  background: var(--surface-color);            /* or var(--surface-color) */
+}
+
+/* Reduce overlay padding and text size to match smaller cards */
+.portfolio .portfolio-content .portfolio-info {
+  padding: 12px;
+}
+
+.portfolio .portfolio-content .portfolio-info h4 {
+  font-size: 13px;
+  padding: 4px 8px;
+}
+
+.portfolio .portfolio-content .portfolio-info p {
+  font-size: 13px;
+  bottom: 8px;
+}
+
+/* Center the icon better on smaller cards */
+.portfolio .portfolio-content .portfolio-info .details-link {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+}
+
+/* Optional: reduce zoom effect so it doesn’t feel too aggressive */
+.portfolio .portfolio-content:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive: smaller image on mobile */
+@media (max-width: 576px) {
+  .portfolio .portfolio-content img {
+    height: 180px;
+  }
+}
