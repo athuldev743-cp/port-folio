@@ -1374,10 +1374,8 @@ section,
 }
 
 /* Mobile-specific fine tuning */
-@media (max-width: 768px){
-  #hero.hero img{
-    transform: scale(1.15);       /* slightly more zoom for mobile */
-  }
+@media (max-width: 480px){
+ 
 
   /* Move text away from face */
   #hero.hero{
