@@ -1371,30 +1371,19 @@ section,
 
 /* ✅ Mobile: show more TOP + push text down */
 @media (max-width: 768px){
-
-  /* 1) Show top portion */
-  .hero img{
-    object-fit: cover;
-    object-position: top center;   /* ✅ shows head/top area */
+  #hero.hero img{
+    object-fit: cover !important;
+    object-position: top center !important;  /* ✅ show top part */
   }
 
-  /* 2) Push text down (not on face) */
-  .hero{
-    align-items: flex-end;         /* ✅ move content to bottom */
+  /* Push text down so it's not on face */
+  #hero.hero{
+    align-items: flex-end !important;
   }
 
-  .hero .container{
-    padding: 0 16px 70px;          /* ✅ bottom spacing */
+  #hero.hero .container{
+    padding: 0 16px 80px !important; /* increase/decrease to move text */
     text-align: center;
-  }
-
-  .hero h2{
-    font-size: 34px;
-    line-height: 1.1;
-  }
-
-  .hero p{
-    font-size: 18px;
   }
 }
 
