@@ -223,7 +223,30 @@
       }
     })
   }
+
+
+  const header = document.getElementById("header");
+  const nav = document.getElementById("navmenu");
+  const toggle = document.querySelector(".mobile-nav-toggle");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) header.classList.add("header-scrolled");
+    else header.classList.remove("header-scrolled");
+  });
+
+  toggle?.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+
+  // close menu on link click (mobile)
+  nav.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => nav.classList.remove("show"));
+  });
+
+
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+  
 
 })();

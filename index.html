@@ -35,46 +35,39 @@
 <body class="index-page">
 
   <!-- ===================== HEADER ===================== -->
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+  <header id="header" class="header header-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
 
-    <div class="profile-img">
-      <img src="./assets/img/photo.jpg" alt="Athul Dev" class="img-fluid rounded-circle" />
-    </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <h1 class="sitename">Athul Dev</h1>
+    <!-- Logo / Name -->
+    <a href="#hero" class="logo d-flex align-items-center">
+      <h1 class="sitename m-0">Athul Dev</h1>
     </a>
 
-    <div class="social-links text-center">
-      <a href="https://x.com/AthulDev590941?t=qmGmoJmfAlXAiruK5eco5w&s=09" class="twitter" aria-label="Twitter/X">
-        <i class="bi bi-twitter"></i>
-      </a>
-      <a href="https://www.facebook.com/share/1AEXGd4uf9/" class="facebook" aria-label="Facebook">
-        <i class="bi bi-facebook"></i>
-      </a>
-      <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=jca59wk"
-        class="instagram" aria-label="Instagram">
-        <i class="bi bi-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/athul-dev-0637b7373" class="linkedin" aria-label="LinkedIn">
-        <i class="bi bi-linkedin"></i>
-      </a>
-    </div>
-
+    <!-- Nav -->
     <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i>About</a></li>
-        <li><a href="#skills"><i class="bi bi-bar-chart navicon"></i>Skills</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i>Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i>Projects</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i>Services</a></li>
-        <li><a href="#testimonials"><i class="bi bi-chat-quote navicon"></i>Testimonials</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i>Contact</a></li>
+      <ul class="m-0 p-0">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#portfolio">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-  </header>
+
+    <!-- Social (optional, right side) -->
+    <div class="top-social d-none d-lg-flex align-items-center gap-3">
+      <a href="https://www.linkedin.com/in/athul-dev-0637b7373" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    </div>
+
+    <!-- Mobile toggle -->
+    <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+  </div>
+</header>
+
 
   <!-- ===================== MAIN ===================== -->
   <main class="main">
