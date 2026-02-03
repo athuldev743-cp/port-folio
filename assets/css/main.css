@@ -1350,3 +1350,50 @@ section,
     font-size: 18px;
   }
 }
+/* ================= HERO: fix black space on mobile ================= */
+.hero{
+  padding: 0;                         /* remove extra vertical padding */
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+}
+
+/* Default desktop */
+.hero img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Mobile: fill screen (no black gap) + shift focus so it doesn't show only center */
+@media (max-width: 768px){
+  .hero img{
+    object-fit: cover;                /* ✅ fills full height => no black space */
+    object-position: 20% center;      /* ✅ shows more LEFT side (tune 10%–40%) */
+  }
+
+  .hero .container{
+    padding: 0 16px;
+  }
+
+  .hero h2{ font-size: 36px; }
+  .hero p{ font-size: 18px; }
+}
+/* ================= HERO TEXT POSITION FIX ================= */
+
+/* Default: center (mobile & tablet) */
+.hero{
+  align-items: center;
+}
+
+/* Laptop & desktop: move text down */
+@media (min-width: 992px){
+  .hero{
+    align-items: flex-end;     /* push content down */
+  }
+
+  .hero .container{
+    padding-bottom: 120px;    /* control how far down */
+  }
+}
