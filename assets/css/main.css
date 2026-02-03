@@ -1354,38 +1354,42 @@ section,
 /* ================= HERO: Mobile top visible + text not on face ================= */
 
 /* Keep full screen hero */
-.hero{
+/* ================= HERO: intentional center zoom (NO empty space) ================= */
+
+#hero.hero{
   min-height: 100vh;
   min-height: 100svh;
   min-height: 100dvh;
   padding: 0;
+  overflow: hidden;
 }
 
-/* Desktop default (already fine) */
-.hero img{
+/* Desktop & mobile: always fill screen */
+#hero.hero img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover;              /* ✅ no empty space */
+  object-position: center center; /* ✅ intentional center zoom */
+  transform: scale(1.08);         /* ✅ controlled zoom */
 }
 
-/* ✅ Mobile: show more TOP + push text down */
+/* Mobile-specific fine tuning */
 @media (max-width: 768px){
   #hero.hero img{
-    object-fit: cover !important;
-    object-position: top center !important;  /* ✅ show top part */
+    transform: scale(1.15);       /* slightly more zoom for mobile */
   }
 
-  /* Push text down so it's not on face */
+  /* Move text away from face */
   #hero.hero{
-    align-items: flex-end !important;
+    align-items: flex-end;
   }
 
   #hero.hero .container{
-    padding: 0 16px 80px !important; /* increase/decrease to move text */
+    padding: 0 16px 80px;
     text-align: center;
   }
 }
+
 
 /* ================= HERO TEXT POSITION FIX ================= */
 
