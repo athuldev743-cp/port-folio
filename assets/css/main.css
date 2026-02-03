@@ -1356,34 +1356,29 @@ section,
 /* Keep full screen hero */
 /* ================= HERO: intentional center zoom (NO empty space) ================= */
 
-#hero.hero{
-  min-height: 100vh;
-  min-height: 100svh;
-  min-height: 100dvh;
-  padding: 0;
-  overflow: hidden;
-}
-
-/* Desktop & mobile: always fill screen */
+/* ================= HERO: NO zoom on mobile ================= */
 #hero.hero img{
   width: 100%;
   height: 100%;
-  object-fit: cover;              /* ✅ no empty space */
-  object-position: center center; /* ✅ intentional center zoom */
-  transform: scale(1.08);         /* ✅ controlled zoom */
+  object-fit: cover;              /* full screen, no gaps */
+  object-position: center center; /* default */
+  transform: none;                /* ✅ remove zoom */
 }
 
-/* Mobile-specific fine tuning */
-@media (max-width: 480px){
- 
+/* Mobile specific: still no zoom, just choose a better crop focus */
+@media (max-width: 768px){
+  #hero.hero img{
+    transform: none !important;           /* ✅ force no zoom */
+    object-position: 20% top !important;  /* ✅ adjust crop (try 0%-40%) */
+  }
 
   /* Move text away from face */
   #hero.hero{
-    align-items: flex-end;
+    align-items: flex-end !important;
   }
 
   #hero.hero .container{
-    padding: 0 16px 80px;
+    padding: 0 16px 80px !important;
     text-align: center;
   }
 }
