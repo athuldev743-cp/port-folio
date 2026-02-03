@@ -1401,78 +1401,139 @@ section,
     padding-bottom: 120px;    /* control how far down */
   }
 }
-/* ===== TOP HEADER ===== */
-.header-top{
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 70px;
-  z-index: 1000;
+/* ============================================================
+   OVERRIDE: iPortfolio sidebar -> TOP NAVBAR
+   Paste at END of main.css
+============================================================ */
 
-  background: #000; /* black at top */
-  transition: background .35s ease, backdrop-filter .35s ease;
-  display: flex;
-  align-items: center;
+/* Stop template sidebar layout */
+.header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: auto !important;
+  width: 100% !important;
+  height: 70px !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  border-right: 0 !important;
+  z-index: 1000 !important;
 }
 
-/* transparent on scroll */
-.header-top.header-scrolled{
-  background: transparent;
+/* Remove "margin-left:300px" that makes content shift */
+.header ~ main,
+.header ~ #footer {
+  margin-left: 0 !important;
 }
 
-/* spacing */
-main{ padding-top: 70px; }
+/* Give space for fixed top header */
+main.main {
+  padding-top: 70px;
+}
 
-/* nav */
-.header-top .navmenu ul{
+/* Hide sidebar-only elements if still present in HTML */
+.header .profile-img,
+.header .social-links,
+.header .header-toggle {
+  display: none !important;
+}
+
+/* Header look */
+.header-top {
+  background: #000 !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: background 0.35s ease, backdrop-filter 0.35s ease;
+}
+
+/* After scroll: solid / glass (choose one)
+   Option A: glass black
+*/
+.header-top.header-scrolled {
+  background: rgba(0, 0, 0, 0.72) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Logo */
+.header-top .logo .sitename {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff !important;
+}
+
+/* Desktop nav */
+.header-top .navmenu ul {
   display: flex;
   gap: 22px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.header-top .navmenu a{
-  color: #fff;
+.header-top .navmenu a {
+  color: #fff !important;
+  font-family: var(--nav-font);
   font-weight: 500;
   padding: 8px 0;
+  display: inline-flex;
+  align-items: center;
 }
 
 .header-top .navmenu a:hover,
-.header-top .navmenu a.active{
-  color: var(--accent-color);
+.header-top .navmenu a.active {
+  color: var(--accent-color) !important;
 }
 
-/* icons (social) */
-.header-top .top-social a{
-  color: #fff;
+/* Social icons */
+.header-top .top-social a {
+  color: #fff !important;
   font-size: 18px;
 }
-.header-top .top-social a:hover{
-  color: var(--accent-color);
+
+.header-top .top-social a:hover {
+  color: var(--accent-color) !important;
 }
 
-/* ===== MOBILE MENU ===== */
-.mobile-nav-toggle{
+/* Mobile toggle icon */
+.mobile-nav-toggle {
   font-size: 28px;
   color: #fff;
   cursor: pointer;
+  display: inline-flex !important; /* template hides it */
 }
 
-@media (max-width: 991px){
-  .header-top .navmenu{
+/* MOBILE MENU */
+@media (max-width: 991px) {
+  /* hide nav by default */
+  .header-top .navmenu {
     position: absolute;
     top: 70px;
     left: 0;
     right: 0;
     background: #000;
     display: none;
+    padding: 0;
   }
 
-  .header-top .navmenu ul{
+  .header-top .navmenu.show {
+    display: block;
+  }
+
+  .header-top .navmenu ul {
     flex-direction: column;
     gap: 12px;
     padding: 18px;
   }
 
-  .header-top .navmenu.show{
-    display: block;
+  .header-top .navmenu a {
+    padding: 10px 0;
+  }
+}
+
+/* Desktop: hide mobile toggle icon */
+@media (min-width: 992px) {
+  .mobile-nav-toggle {
+    display: none !important;
   }
 }
