@@ -1331,7 +1331,7 @@ section,
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;      /* fills screen nicely */
+  object-fit: contain;       /* fills screen nicely */
   object-position: top;/* keep centered */
   display: block;
 }
