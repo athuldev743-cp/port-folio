@@ -1351,14 +1351,17 @@ section,
   }
 }
 /* ================= HERO: fix black space on mobile ================= */
+/* ================= HERO: Mobile top visible + text not on face ================= */
+
+/* Keep full screen hero */
 .hero{
-  padding: 0;                         /* remove extra vertical padding */
   min-height: 100vh;
   min-height: 100svh;
   min-height: 100dvh;
+  padding: 0;
 }
 
-/* Default desktop */
+/* Desktop default (already fine) */
 .hero img{
   width: 100%;
   height: 100%;
@@ -1366,20 +1369,35 @@ section,
   object-position: center;
 }
 
-/* Mobile: fill screen (no black gap) + shift focus so it doesn't show only center */
+/* ✅ Mobile: show more TOP + push text down */
 @media (max-width: 768px){
+
+  /* 1) Show top portion */
   .hero img{
-    object-fit: cover;                /* ✅ fills full height => no black space */
-    object-position: 20% center;      /* ✅ shows more LEFT side (tune 10%–40%) */
+    object-fit: cover;
+    object-position: top center;   /* ✅ shows head/top area */
+  }
+
+  /* 2) Push text down (not on face) */
+  .hero{
+    align-items: flex-end;         /* ✅ move content to bottom */
   }
 
   .hero .container{
-    padding: 0 16px;
+    padding: 0 16px 70px;          /* ✅ bottom spacing */
+    text-align: center;
   }
 
-  .hero h2{ font-size: 36px; }
-  .hero p{ font-size: 18px; }
+  .hero h2{
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+  .hero p{
+    font-size: 18px;
+  }
 }
+
 /* ================= HERO TEXT POSITION FIX ================= */
 
 /* Default: center (mobile & tablet) */
